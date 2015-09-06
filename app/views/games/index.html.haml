@@ -1,6 +1,8 @@
 %h1
-  All Games
+  Games
 = link_to 'New Game', new_game_path
+%h2
+  Games to Play
 %table
   %tr
     %th
@@ -10,7 +12,35 @@
     %th
       Played
     %th{:colspan => "3"}
-  - @games.each do |game|
+  - @unplayed.each do |game|
+    %tr
+      %td
+        = game.title
+      %td
+        = game.year
+      %td
+        - if game.played
+          Yes
+        - else
+          No
+      %td
+        = link_to "Show", game_path(game)
+      %td
+        = link_to "Edit", edit_game_path(game)
+      %td
+        = link_to "Delete", game_path(game), method: :delete, data: {confirm: 'Are you sure?'}
+%h2
+  Games Played
+%table
+  %tr
+    %th
+      Title
+    %th
+      Year
+    %th
+      Played
+    %th{:colspan => "3"}
+  - @played.each do |game|
     %tr
       %td
         = game.title

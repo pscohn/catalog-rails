@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @played = Game.where("played = 't'")
+    @unplayed = Game.where("played = 'f'")
   end
 
   def show
