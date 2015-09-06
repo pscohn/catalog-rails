@@ -4,23 +4,11 @@
 
 %h2
   Seasons
-- @show.seasons.each do |season|
-  %p
-    %strong
-      Season #{season.number}:
-    #{season.num_episodes} episodes
+= render @show.seasons
 
 %h2
   Add a season:
-= form_for([@show, @show.seasons.build]) do |f|
-  %p
-    = f.label :number
-    = f.text_field :number
-  %p
-    = f.label :num_episodes
-    = f.text_field :num_episodes
-  %p
-    = f.submit
+= render 'seasons/form'
 
 = link_to 'Edit', edit_show_path(@show) | 
 = link_to 'Back', shows_path

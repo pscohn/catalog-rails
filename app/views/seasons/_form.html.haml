@@ -1,0 +1,12 @@
+= form_for([@show, @show.seasons.build]) do |f|
+  %p
+    = f.label :number
+    = f.text_field :number
+  %p
+    = f.label :num_episodes
+    = f.text_field :num_episodes
+  %p
+    = f.label :watched
+    = f.text_field :watched
+  %p
+    = f.submit
