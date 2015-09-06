@@ -5,11 +5,15 @@
   %tr
     %th
       Title
+    %th
+      Seasons
     %th{:colspan => "3"}
   - @shows.each do |show|
     %tr
       %td
         = show.title
+      %td
+        = show.num_seasons
       %td
         = link_to "Show", show_path(show)
       %td
