@@ -1,3 +1,3 @@
 class Season < ActiveRecord::Base
-  belongs_to :series
+  belongs_to :show
 end
