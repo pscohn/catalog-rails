@@ -9,7 +9,7 @@ class Show < ActiveRecord::Base
   def num_episodes
     count = 0
     seasons.each do |season|
-      count += season.num_episodes
+      count += season.episodes.count
     end
     count
   end
