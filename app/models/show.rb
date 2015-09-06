@@ -5,4 +5,12 @@ class Show < ActiveRecord::Base
   def num_seasons
     seasons.count
   end
+
+  def num_episodes
+    count = 0
+    seasons.each do |season|
+      count += season.num_episodes
+    end
+    count
+  end
 end
