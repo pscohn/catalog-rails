@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 20150906215955) do
   create_table "episodes", force: :cascade do |t|
     t.integer  "number"
     t.boolean  "watched",    default: false
-    t.integer  "seasons_id"
+    t.integer  "season_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "episodes", ["seasons_id"], name: "index_episodes_on_seasons_id"
+  add_index "episodes", ["season_id"], name: "index_episodes_on_season_id"
 
   create_table "games", force: :cascade do |t|
     t.string   "title"

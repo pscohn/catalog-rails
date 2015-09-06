@@ -3,7 +3,7 @@ class CreateEpisodes < ActiveRecord::Migration
     create_table :episodes do |t|
       t.integer :number
       t.boolean :watched, :default => false
-      t.references :seasons, index: true, foreign_key: true
+      t.references :season, index: true, foreign_key: true
 
       t.timestamps null: false
     end

@@ -14,6 +14,6 @@ class SeasonsController < ApplicationController
 
   private
     def season_params
-      params.require(:season).permit(:number, :num_episodes, :watched)
+      params.require(:season).permit(:number)
     end
 end

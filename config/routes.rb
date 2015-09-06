@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :games
   resources :shows do
-    resources :seasons
+    resources :seasons do
+      resources :episodes
+    end
   end
   root 'welcome#index'
 

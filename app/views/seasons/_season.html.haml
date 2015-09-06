@@ -1,5 +1,5 @@
 %p
   %strong
     Season #{season.number}:
-  #{season.num_episodes} episodes
+  #{season.episodes.count} episodes
   (#{link_to 'Delete', [season.show, season], method: :delete, data: {confirm: "Are you sure?"}})

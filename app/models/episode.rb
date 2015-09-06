@@ -1,3 +1,3 @@
 class Episode < ActiveRecord::Base
-  belongs_to :season, dependent: :destroy
+  belongs_to :season
 end
