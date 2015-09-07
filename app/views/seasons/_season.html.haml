@@ -9,3 +9,4 @@
       %a{:href => "http://google.com/#q=#{season.show.title} season #{season.number} episode #{episode.number}"}
         Episode #{episode.number}
       \- Watched: #{episode.watched}
+      \- #{link_to 'Toggle', show_season_episode_path(season.show, season, episode), method: :patch}
