@@ -25,7 +25,8 @@
       %td
         = show.num_watched
       %td
-        = "season #{show.next_episode.season.number} episode #{show.next_episode.number}"
+        %a{:href => "http://google.com/#q=#{show.title} season #{show.next_episode.season.number} episode #{show.next_episode.number}"}
+          season #{show.next_episode.season.number} episode #{show.next_episode.number}
       %td
         = link_to "Show", show_path(show)
       %td
