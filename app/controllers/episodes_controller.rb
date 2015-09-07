@@ -8,7 +8,7 @@ class EpisodesController < ApplicationController
       @episode.watched = true
     end
     @episode.save
-    redirect_to show_path(@show)
+    redirect_to :back
   end
 
   def season_params
