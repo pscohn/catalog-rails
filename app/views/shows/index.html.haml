@@ -9,6 +9,8 @@
       Seasons
     %th
       Episodes
+    %th
+      Total Watched
     %th{:colspan => "3"}
   - @shows.each do |show|
     %tr
@@ -18,6 +20,8 @@
         = show.num_seasons
       %td
         = show.num_episodes
+      %td
+        = show.num_watched
       %td
         = link_to "Show", show_path(show)
       %td

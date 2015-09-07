@@ -13,4 +13,12 @@ class Show < ActiveRecord::Base
     end
     count
   end
+
+  def num_watched
+    count = 0
+    seasons.each do |season|
+      count += season.episodes.where(watched: true).count
+    end
+    count
+  end
 end
