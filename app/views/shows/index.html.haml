@@ -25,10 +25,10 @@
       %td
         = show.num_watched
       %td
-        %a{:href => "http://google.com/#q=#{show.title} season #{show.next_episode.season.number} episode #{show.next_episode.number}", :target => "blank"}
-          season #{show.next_episode.season.number} episode #{show.next_episode.number}
+        %a{:href => "http://google.com/#q=#{show.search_term_by_season_keywords}", :target => "blank"}
+          = show.search_term_by_season
         |
-        %a{:href => "http://google.com/#q=#{show.title} episode #{show.num_watched + 1}", :target => "blank"}
+        %a{:href => "http://google.com/#q=#{show.search_term_by_episode_keywords}", :target => "blank"}
           = show.num_watched + 1
       %td
         = link_to "Show", show_path(show)

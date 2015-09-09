@@ -2,6 +2,26 @@ class Show < ActiveRecord::Base
   has_many :seasons, dependent: :destroy
   validates :title, presence: true
 
+  def search_term_by_season
+    term = "#{title} season #{next_episode.season.number} episode #{next_episode.number}"
+  end
+
+  def search_term_by_season_keywords
+    add_keywords(search_term_by_season)
+  end
+
+  def search_term_by_episode_keywords
+    term = "#{title} episode #{num_watched + 1}"
+    term = add_keywords(term)
+  end
+
+  def add_keywords(term)
+    unless keywords.nil?
+      term += " #{keywords}"
+    end
+    term
+  end
+
   def num_seasons
     seasons.count
   end
