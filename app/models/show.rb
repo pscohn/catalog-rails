@@ -44,7 +44,11 @@ class Show < ActiveRecord::Base
 
   def next_episode
     #TODO make better
-    episode = seasons.find_by(number: 1).episodes.find_by(number: 1)
+    first = seasons.find_by(number: 1)
+    if first.nil?
+      return
+    end
+    episode = first.episodes.find_by(number: 1)
     last_watched = nil
     seasons.each do |season|
       season.episodes.each do |episode|

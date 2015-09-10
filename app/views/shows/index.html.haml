@@ -25,11 +25,12 @@
       %td
         = show.num_watched
       %td
-        %a{:href => "http://google.com/#q=#{show.search_term_by_season_keywords}", :target => "blank"}
-          = show.search_term_by_season
-        |
-        %a{:href => "http://google.com/#q=#{show.search_term_by_episode_keywords}", :target => "blank"}
-          = show.num_watched + 1
+        - unless show.next_episode.nil?
+          %a{:href => "http://google.com/#q=#{show.search_term_by_season_keywords}", :target => "blank"}
+            = show.search_term_by_season
+          |
+          %a{:href => "http://google.com/#q=#{show.search_term_by_episode_keywords}", :target => "blank"}
+            = show.num_watched + 1
       %td
         = link_to "Show", show_path(show)
       %td
@@ -37,4 +38,5 @@
       %td
         = link_to "Delete", show_path(show), method: :delete, data: {confirm: 'Are you sure?'}
       %td
-        = link_to 'Watched', show_season_episode_path(show, show.next_episode.season, show.next_episode), method: :patch
+        - unless show.next_episode.nil?
+          = link_to 'Watched', show_season_episode_path(show, show.next_episode.season, show.next_episode), method: :patch
