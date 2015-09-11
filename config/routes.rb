@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :games
+  resources :movies
   resources :shows do
     resources :seasons do
       resources :episodes
